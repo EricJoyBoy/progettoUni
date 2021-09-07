@@ -1,0 +1,144 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Informazioni</title>
+	   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>home</title>             
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+</head>
+
+<body>
+	<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="home">
+      <img src="https://www.fedaiisf.it/wp-content/uploads/2021/03/Fase-1-01_primula_Tavola-disegno-1.png" width="" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a href="home" class="navbar-item">
+        Home
+      </a>
+
+      <a class="navbar-item">
+        Documentazione
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Github
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Repository (src)
+          </a>
+          <a class="navbar-item">
+            
+          </a>
+          <a class="navbar-item">
+            Manuale utente
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Manuale tecnico
+          </a>
+        </div>
+      </div>
+    </div>
+
+      <div class="navbar-end" sec:authorize="isAnonymous()" >
+      <div class="navbar-item">
+        <div class="buttons">
+          <a href="registracittadino" class="button is-primary">
+            <strong>Registrati</strong>
+          </a>
+          <a href="login" class="button is-light">
+            Accedi
+          </a>
+        </div>
+      </div>
+      
+    </div>
+       <div class="navbar-end" sec:authorize="isAuthenticated()" >
+      <div class="navbar-item">
+        <a href="account"> 
+        <button class="button is-link is-light" href="account">
+     
+        <img src="https://www.studiofrancesconi.com/wp-content/uploads/2019/03/placeholder-profile-sq.jpg" hspace="9">
+					
+ <span class="username" hspace="9" th:text="${#authentication.getPrincipal().getUsername()}"></span>
+  </button>
+  </a>
+      </div>
+      </div>
+  </div>
+</nav>
+
+<section class="hero is-fullheight">
+
+<div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                Informazioni Centri Vaccinali
+              </header>
+				<br>
+				
+				<form th:action="@{/informazioni}" method="get">
+					<input class="input" style="width: 300px;"id="txtSearch" type="text" name="keyword">
+					<button class="button is-danger" type="submit">Cerca</button>
+				</form>
+				
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <tbody>
+                  <tr>
+                  
+                    <th><i class="icon_profile"></i> Nome Centro</th>
+                    <th><i class="icon_calendar"></i>Qualificatore</th>
+                    <th><i class="icon_mail_alt"></i>Nome </th>
+                    <th><i class="icon_pin_alt"></i> Numero Civico</th>
+                    <th><i class="icon_mobile"></i> Comune</th>
+					<th><i class="icon_cogs"></i> Sigla Provincia</th>
+					<th><i class="icon_mobile"></i> Cap</th>
+					<th><i class="icon_cogs"></i> Tipologia</th>
+					
+                  </tr>
+				 <tr th:each="informazioni:${centrivaccinali}">	
+				      
+					<td th:text="${informazioni.nomeCentro}">Fullname</td>
+					<td th:text="${informazioni.qualificatore}">HireDate</td>
+					<td th:text="${informazioni.nome}">Email</td>
+					<td th:text="${informazioni.numeroCivico}">City</td>
+					<td th:text="${informazioni.comune}">Phone</td>			
+					<td th:text="${informazioni.siglaProvincia}">Email</td>
+					<td th:text="${informazioni.cap}">City</td>
+					<td th:text="${informazioni.tipologia}">Phone</td>			
+                   
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>		
+</section>
+
+</body>
+
+<style>
+.row{
+	text-align: center;
+}
+</style>
+</html>

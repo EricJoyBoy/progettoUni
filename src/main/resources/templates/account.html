@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Free Bulma template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    
+</head>
+
+<body>
+
+
+	<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="index">
+      <img src="https://www.fedaiisf.it/wp-content/uploads/2021/03/Fase-1-01_primula_Tavola-disegno-1.png" width="" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a href="home" class="navbar-item">
+        Home
+      </a>
+
+      <a class="navbar-item">
+        Documentazione
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Github
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Repository (src)
+          </a>
+          <a class="navbar-item">
+            
+          </a>
+          <a class="navbar-item">
+            Manuale utente
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Manuale tecnico
+          </a>
+        </div>
+      </div>
+    </div>
+
+  <div class="navbar-end" sec:authorize="isAuthenticated()" >
+      <div class="navbar-item">
+		  <a href="account">
+        <button class="button is-link is-light">
+     
+        <img src="https://www.studiofrancesconi.com/wp-content/uploads/2019/03/placeholder-profile-sq.jpg" hspace="9">
+					
+<span class="username" hspace="9" th:text="${#authentication.getPrincipal().getUsername()}"></span>
+  </button>
+  </a>
+      </div>
+      </div>
+  </div>
+</nav>
+
+
+
+    <section class="hero is-success is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-black">Account</h3>
+                    <hr class="login-hr">
+                    <p class="subtitle has-text-black">Visiona i tuoi dati</p>
+                    <div class="box">
+                        <figure class="avatar">
+                            <img src="https://www.studiofrancesconi.com/wp-content/uploads/2019/03/placeholder-profile-sq.jpg">
+						</figure>
+						
+
+
+						<h1  th:text="${#authentication.getPrincipal().getUsername()}"></h1>
+						<br>
+                        <form th:action="@{/logout}" method="POST">
+						   <button class="button is-large">Logout</button>
+							</form>
+							
+							
+                             
+                            </div>
+                            
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+    <script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+
+<style>
+
+.hero.is-success {
+    background-image:    url(https://marmotamaps.com/de/fx/wallpaper/download/faszinationen/Marmotamaps_Wallpaper_Berchtesgaden_Desktop_1920x1080.jpg);
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+	  font-family: 'Questrial', sans-serif;
+  font-size: 14px;
+  font-weight: 300;   
+}
+.hero .nav, .hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.box {
+  margin-top: 5rem;
+}
+.avatar {
+  margin-top: -70px;
+  padding-bottom: 20px;
+}
+.avatar img {
+  padding: 5px;
+  background: #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+}
+input {
+  font-weight: 300;
+}
+p {
+  font-weight: 700;
+}
+p.subtitle {
+  padding-top: 1rem;
+}
+
+.login-hr{
+  border-bottom: 1px solid black;
+}
+
+.has-text-black{
+  color: black;
+}
+
+.field{
+  padding-bottom: 10px;
+}
+
+.fa{
+  margin-left: 5px; 
+}
+
+</style>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registra Vaccinato</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/register.css">
+  </head>
+
+  <body>
+	  
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="home">
+      <img src="https://www.fedaiisf.it/wp-content/uploads/2021/03/Fase-1-01_primula_Tavola-disegno-1.png" width="" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a href="home" class="navbar-item">
+        Home
+      </a>
+
+      <a class="navbar-item">
+        Documentazione
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Github
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Repository (src)
+          </a>
+          <a class="navbar-item">
+            
+          </a>
+          <a class="navbar-item">
+            Manuale utente
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Manuale tecnico
+          </a>
+        </div>
+      </div>
+    </div>
+
+   <div class="navbar-end" sec:authorize="isAnonymous()" >
+      <div class="navbar-item">
+        <div class="buttons">
+          <a href="registracittadino" class="button is-primary">
+            <strong>Registrati</strong>
+          </a>
+          <a href="login" class="button is-light">
+            Accedi
+          </a>
+        </div>
+      </div>
+      
+    </div>
+       <div class="navbar-end" sec:authorize="isAuthenticated()" >
+      <div class="navbar-item">
+        <a href="account">
+        <button class="button is-link is-light" >
+     
+        <img src="https://www.studiofrancesconi.com/wp-content/uploads/2019/03/placeholder-profile-sq.jpg" hspace="9">
+					
+  <span class="username" hspace="9" th:text="${#authentication.getPrincipal().getUsername()}"></span>
+  </button>
+  </a>
+      </div>
+      </div>
+  </div>
+</nav>
+
+	<section class="hero is-fullheight">
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<div class="columns is-8 is-variable ">
+					<div class="column is-two-thirds has-text-left">
+						<h1 style="color:white;" class="title is-1">Registrata il Paziente</h1>
+						<p style="color:white;" class="is-size-4">Registra il paziente vaccinato nel sistema
+						.</p>
+					
+					</div>
+			 <form method="POST">
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-medium" name="nomeCentro" type="text" placeholder="Nome centro">
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-medium" name="nome" type="text" placeholder="Nome">
+                  </div>
+				</div>
+				<div class="field">
+                  <div class="control">
+                    <input class="input is-medium" name="codiceFiscale" type="text" placeholder="Codice fiscale">
+                  </div>
+				</div>
+				<div class="field">
+                  <div class="control">
+                    <input class="input is-medium" name ="data" type="date" placeholder="Data">
+                  </div>
+				</div>
+				<div class="field">
+                  <div class="control">
+                    <input class="input is-medium" name="vaccino" type="text" placeholder="Vaccino">
+                  </div>
+				</div>
+				<div class="field">
+                  <div class="control">
+                    <input class="input is-medium" name="idUnivoco" type="text" placeholder="ID Univoco" maxlength="16">
+                  </div>
+                </div>
+                <button class="button is-block is-primary is-fullwidth is-medium">invia</button>
+                <br />
+                <small><em style="color:white;">I tuoi dati sono prottetti dalla Normativa EU</em></small>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+            </div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+  </body>
+  <style>
+    :root {
+      --brandColor: hsl(166, 67%, 51%);
+      --background: rgb(247, 247, 247);
+      --textDark: hsla(0, 0%, 0%, 0.66);
+      --textLight: hsla(0, 0%, 0%, 0.33);
+    }
+
+
+    .hero{
+     background-image:    url(https://preview.redd.it/52f61nfzmwl51.jpg?auto=webp&s=ea0d396990fbdffe68c214d263810737f9faac6f);
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;     
+    }
+	
+    body {
+       
+      background: var(--background);
+      height: 100vh;
+      color: var(--textDark);
+    }
+
+    .field:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    .register {
+      margin-top: 10rem;
+      background: white;
+      border-radius: 10px;
+    }
+
+    .left,
+    .right {
+      padding: 4.5rem;
+    }
+
+    .left {
+      border-right: 5px solid var(--background);
+    }
+
+    .left .title {
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    .left .colored {
+      color: var(--brandColor);
+      font-weight: 500;
+      margin-top: 1rem !important;
+      letter-spacing: -1px;
+    }
+
+    .left p {
+      color: var(--textLight);
+      font-size: 1.15rem;
+    }
+
+    .right .title {
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .right .description {
+      margin-top: 1rem;
+      margin-bottom: 1rem !important;
+      color: var(--textLight);
+      font-size: 1.15rem;
+    }
+
+    .right small {
+      color: var(--textLight);
+    }
+
+    input {
+      font-size: 1rem;
+    }
+
+    input:focus {
+      border-color: var(--brandColor) !important;
+      box-shadow: 0 0 0 1px var(--brandColor) !important;
+    }
+
+    .fab,
+    .fas {
+      color: var(--textLight);
+      margin-right: 1rem;
+    }
+
+  </style>
+
+</html>
