@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /*
+ * VaccinatiRegistrati  è la classe che fornisce i metodi per accedere ai dati utili all'applicazione
  * @author Eric Marins
  * 
  */
@@ -14,21 +15,58 @@ import java.util.Objects;
 public class VaccinatiRegistrati implements Serializable{
 
 	/**
-	 * 
+	 * serialVersionUID,  viene utilizzato durante la deserializzazione
+	 *  per verificare che il mittente e il destinatario di un oggetto serializzato
+	 *   abbiano caricato classi per quell'oggetto compatibili 
+	 *  rispetto alla serializzazione. 
 	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * L'attributo Id ci permette di riconoscere in
+	 * maniera univoca il centro vaccinale
+	 *  viene annotato cosi da essere riconosciuto da JPA
+	 *  come ID del nostro oggetto
+	 * 
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	/**
+	 * Identifica il nome del centro
+	 */
 	private String  nomeCentro;
+	/**
+	 * identifica il nome del centro vaccinale
+	 */
 	private String nome;
+	/**
+	 * identifica il codice fiscale del cittadino
+	 */
 	private String codiceFiscale;
+	/**
+	 * identifica la data si somministrazione dell vaccino
+	 */
 	private String data;
+	/**
+	 * identfica quale vaccino è stato somministrato al paziente
+	 */
 	private String vaccino;
+	/**
+	 * identifica l' id univoco del paziente vaccinato
+	 */
 	private String idUnivoco;
 	
 	
-	
+	/**
+	 * Costruttore con tutti i parametri
+	 * @param id
+	 * @param nomeCentro
+	 * @param nome
+	 * @param codiceFiscale
+	 * @param data
+	 * @param vaccino
+	 * @param idUnivoco
+	 */
 	public VaccinatiRegistrati(Integer id, String nomeCentro, String nome, String codiceFiscale, String data,
 			String vaccino, String idUnivoco) {
 		super();
@@ -40,7 +78,9 @@ public class VaccinatiRegistrati implements Serializable{
 		this.vaccino = vaccino;
 		this.idUnivoco = idUnivoco;
 	}
-
+/**
+ * Costruttore vuoto
+ */
 	public VaccinatiRegistrati() {
 		super();
 		// TODO Auto-generated constructor stub

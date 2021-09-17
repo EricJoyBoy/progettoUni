@@ -5,22 +5,77 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * EventiAvversi è la classe che fornisce i metodi per accedere ai dati utili all'applicazione
+ * @author Eric Marins
+ *
+ */
 @Entity
 public class EventiAvversi implements Serializable {
 	
 	/**
-	 * 
+	 * serialVersionUID,  viene utilizzato durante la deserializzazione
+	 *  per verificare che il mittente e il destinatario di un oggetto serializzato
+	 *   abbiano caricato classi per quell'oggetto compatibili 
+	 *  rispetto alla serializzazione. 
 	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * L'attributo Id ci permette di riconoscere in
+	 * maniera univoca il centro vaccinale
+	 *  viene annotato cosi da essere riconosciuto da JPA
+	 *  come ID del nostro oggetto
+	 * 
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	/**
+	 * identifica l'evento avverso
+	 */
 	private String evento;
+	/**
+	 * identifica la severita dell'evento
+	 */
 	private String Severita;
+	/**
+	 * identifica le note opzionali
+	 */
 	private String noteOpzionali;
+	/**
+	 * identifica il centro vaccinale
+	 */
+	private String Centro;
 	
+	/**
+	 * Costruttore con tutti i parametri
+	 * @param id
+	 * @param evento
+	 * @param severita
+	 * @param noteOpzionali
+	 * @param centro
+	 */
 	
-	
+	public EventiAvversi(Integer id, String evento, String severita, String noteOpzionali, String centro) {
+		super();
+		this.id = id;
+		this.evento = evento;
+		Severita = severita;
+		this.noteOpzionali = noteOpzionali;
+		Centro = centro;
+	}
+
+
+	public String getCentro() {
+		return Centro;
+	}
+
+
+	public void setCentro(String centro) {
+		Centro = centro;
+	}
+
+
 	public EventiAvversi(Integer id, String evento, String severita, String noteOpzionali) {
 		super();
 		this.id = id;
@@ -29,7 +84,9 @@ public class EventiAvversi implements Serializable {
 		this.noteOpzionali = noteOpzionali;
 	}
 
-
+/**
+ * Costruttore vuoto
+ */
 	public EventiAvversi() {
 		super();
 		// TODO Auto-generated constructor stub

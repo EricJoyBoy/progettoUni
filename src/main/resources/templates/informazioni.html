@@ -5,10 +5,11 @@
 	   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>home</title>             
+    <title>Informazioni</title>             
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+     <link rel="icon" type="image/png" href="https://www.fedaiisf.it/wp-content/uploads/2021/03/Fase-1-01_primula_Tavola-disegno-1.png"/>
 </head>
 
 <body>
@@ -31,27 +32,27 @@
         Home
       </a>
 
-      <a class="navbar-item">
+      <a href="https://ericjoyboy.github.io/JavaDocUni/" class="navbar-item">
         Documentazione
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
+        <a  class="navbar-link">
           Github
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
+          <a href="https://github.com/EricJoyBoy/progettoUni" class="navbar-item">
             Repository (src)
           </a>
           <a class="navbar-item">
             
           </a>
-          <a class="navbar-item">
+          <a href="https://ericjoyboy.github.io/ManualiPdf/" class="navbar-item">
             Manuale utente
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item">
+          <a href="https://ericjoyboy.github.io/ManualeTecnicoProgettoUni/" class="navbar-item">
             Manuale tecnico
           </a>
         </div>
@@ -112,7 +113,9 @@
                     <th><i class="icon_mobile"></i> Comune</th>
 					<th><i class="icon_cogs"></i> Sigla Provincia</th>
 					<th><i class="icon_mobile"></i> Cap</th>
-					<th><i class="icon_cogs"></i> Tipologia</th>
+          <th><i class="icon_cogs"></i> Tipologia</th>
+          <th><i class="icon_cogs"></i>Prospetto</th>
+					
 					
                   </tr>
 				 <tr th:each="informazioni:${centrivaccinali}">	
@@ -124,7 +127,8 @@
 					<td th:text="${informazioni.comune}">Phone</td>			
 					<td th:text="${informazioni.siglaProvincia}">Email</td>
 					<td th:text="${informazioni.cap}">City</td>
-					<td th:text="${informazioni.tipologia}">Phone</td>			
+          <td th:text="${informazioni.tipologia}">Phone</td>		
+           <td ><a href="informazioni2"> <button class="button is-link">Vai</button></a></td>	
                    
                   </tr>
                 </tbody>

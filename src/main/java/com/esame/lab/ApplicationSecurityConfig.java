@@ -14,9 +14,22 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+
+
+
+
+
+
+/**
+ * ApplicationSercurityConfig è la classe la quale fornira sistema di  autenticazione, 
+ * autorizzazione e altre funzionalità di sicurezza al progetto
+ * @author Eric Marins
+ *
+ */
 @EnableWebSecurity
 @Configuration
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
@@ -43,6 +56,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 		.logoutSuccessUrl("/login").permitAll();
 	}
+	
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {

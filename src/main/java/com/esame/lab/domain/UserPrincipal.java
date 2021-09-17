@@ -8,22 +8,31 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
-
+/**
+ * UserPrincipal  è la classe che fornisce i metodi per accedere ai dati utili all'applicazione
+ * @author Eric Marins
+ *
+ */
 
 public class UserPrincipal implements UserDetails {
 	
 
 	
 	
-	
 	/**
-	 * 
+	 * serialVersionUID,  viene utilizzato durante la deserializzazione
+	 *  per verificare che il mittente e il destinatario di un oggetto serializzato
+	 *   abbiano caricato classi per quell'oggetto compatibili 
+	 *  rispetto alla serializzazione. 
 	 */
 	private static final long serialVersionUID = 1L;
 	private CittadiniRegistrati cittadini;
 	
 	
-
+/**
+ * Metodo Costruttore della classe
+ * @param cittadini
+ */
 	public UserPrincipal(CittadiniRegistrati cittadini) {
 		
 		this.cittadini = cittadini;
