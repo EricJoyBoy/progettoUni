@@ -1,6 +1,6 @@
-#Progetto Lab A
+<h1>Progetto Lab Università </h1>
 
-Il progetto svolto durante il periodo universitario del primo anno di Computer Science presso l'Universita degli studi dell'insubria
+Progetto svolto durante il periodo universitario del primo anno di Computer Science presso l'Universita degli studi dell'insubria
 <p align="center">
 <img src="https://www.fedaiisf.it/wp-content/uploads/2021/03/Fase-1-01_primula_Tavola-disegno-1.png" alt="drawing" width="150"/>
 
