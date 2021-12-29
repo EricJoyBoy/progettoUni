@@ -120,7 +120,7 @@
 
   <select   name="centro">
    <option value="">Centro Vaccinale</option>
-    <option  th:each="informazioni:${centrivaccinali}" th:text="${informazioni.nomeCentro}">With options</option>
+    <option  th:each="informazioni:${centrivaccinali}" th:value="${informazioni.id}" th:text="${informazioni.nomeCentro}">With options</option>
   </select>
 </div>
         <br><br>

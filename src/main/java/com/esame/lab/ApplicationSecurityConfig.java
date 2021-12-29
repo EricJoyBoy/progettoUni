@@ -1,3 +1,4 @@
+
 package com.esame.lab;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/registracentro", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**").permitAll()
 		.antMatchers("/registravaccinato", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**").permitAll()
 		.antMatchers("/informazioni", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**").permitAll()
+		.antMatchers("/informazioni2", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**").permitAll()
 		.antMatchers("/h2", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**").permitAll()
 		.antMatchers("/users/addNew").permitAll()
 		.anyRequest().authenticated()
